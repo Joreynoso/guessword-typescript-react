@@ -13,6 +13,7 @@ import NewGameButton from "./components/NewGameButton";
 
 export default function AssemblyEndgame() {
     // State values
+    const [menuOpen, setMenuOPen] = useState<boolean>(false)
     const [currentWord, setCurrentWord] = useState<string>((): string => getRandomWord())
     const [guessedLetters, setGuessedLetters] = useState<string[]>([])
 
@@ -44,49 +45,92 @@ export default function AssemblyEndgame() {
         setGuessedLetters([])
     }
 
+    const arrowIconDown = (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-[#F9F4DA]">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+    )
+
+    const arrowIconUp = (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 text-[#F9F4DA]">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+    )
+
+    function handleOpenMenu(): void {
+        setMenuOPen(prev => !prev)
+    }
+
     return (
-        <main>
-            <ConfettiContainer isGameWon={isGameWon} />
-            <Header />
+        <main className="w-full min-h-screen max-w-7xl mx-auto px-4 py-4 sm:px-0 sm:py-10">
+            <div className='bg-neutral-900 border border-neutral-800 rounded-2xl p-5 flex flex-col justify-center items-center'>
+                <ConfettiContainer isGameWon={isGameWon} />
 
-            <GameStatus
-                isGameWon={isGameWon}
-                isGameLost={isGameLost}
-                isGameOver={isGameOver}
-                isLastGuessIncorrect={isLastGuessIncorrect}
-                wrongGuessCount={wrongGuessCount}
-            />
+                {/* language component */}
+                <div className='relative w-full min-h-16 bg-neutral-900 border border-neutral-800 rounded-xl mb-10
+                    flex flex-col justify-center items-center'>
 
-            <LanguageChips
-                languages={languages}
-                wrongGuessCount={wrongGuessCount}
-            />
+                    <div className='flex justify-center items-center gap-2 mb-2'>
+                        <p className='text-[#F9F4DA] font-medium'>choose a language</p>
 
-            <WordLetters
-                currentWord={currentWord}
-                guessedLetters={guessedLetters}
-                isGameLost={isGameLost}
-            />
+                        {/* toggle menu button */}
+                        <button
+                            onClick={handleOpenMenu}
+                            className='w-10 h-10 rounded-sm bg-neutral-900 border border-neutral-800 aspect-square flex justify-center items-center'>
+                            { menuOpen ? arrowIconUp : arrowIconDown}
+                        </button>
+                    </div>
 
-            <AriaLiveStatus
-                currentWord={currentWord}
-                lastGuessedLetter={lastGuessedLetter}
-                guessedLetters={guessedLetters}
-                numGuessesLeft={numGuessesLeft}
-            />
 
-            <Keyboard
-                alphabet={alphabet}
-                guessedLetters={guessedLetters}
-                currentWord={currentWord}
-                isGameOver={isGameOver}
-                addGuessedLetter={addGuessedLetter}
-            />
+                    {/* dropdown options */}
+                    {menuOpen ? (<div className='absolute top-14 ml-14 w-32 bg-neutral-800 border border-neutral-700 rounded-md flex flex-col items-center py-1'>
+                        <p className='text-[#F9F4DA] font-medium py-1 cursor-pointer'>ESP</p>
+                        <p className='text-[#F9F4DA] font-medium py-1 cursor-pointer'>ENG</p>
+                    </div>)
+                        :
+                        null}
+                </div>
+                <Header />
 
-            <NewGameButton
-                isGameOver={isGameOver}
-                startNewGame={startNewGame}
-            />
+                <GameStatus
+                    isGameWon={isGameWon}
+                    isGameLost={isGameLost}
+                    isGameOver={isGameOver}
+                    isLastGuessIncorrect={isLastGuessIncorrect}
+                    wrongGuessCount={wrongGuessCount}
+                />
+
+                <LanguageChips
+                    languages={languages}
+                    wrongGuessCount={wrongGuessCount}
+                />
+
+                <WordLetters
+                    currentWord={currentWord}
+                    guessedLetters={guessedLetters}
+                    isGameLost={isGameLost}
+                />
+
+                <AriaLiveStatus
+                    currentWord={currentWord}
+                    lastGuessedLetter={lastGuessedLetter}
+                    guessedLetters={guessedLetters}
+                    numGuessesLeft={numGuessesLeft}
+                />
+
+                <Keyboard
+                    alphabet={alphabet}
+                    guessedLetters={guessedLetters}
+                    currentWord={currentWord}
+                    isGameOver={isGameOver}
+                    addGuessedLetter={addGuessedLetter}
+                />
+
+                <NewGameButton
+                    isGameOver={isGameOver}
+                    startNewGame={startNewGame}
+                />
+            </div>
         </main>
     )
 }
