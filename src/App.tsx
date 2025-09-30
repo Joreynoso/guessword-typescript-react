@@ -65,7 +65,7 @@ export default function AssemblyEndgame() {
 
   return (
     <main className="w-full min-h-screen max-w-7xl mx-auto px-4 py-4 sm:px-0 sm:py-10 flex justify-center items-center">
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 flex flex-col justify-center items-center shadow-2xl">
+      <div className="bg-[#111828] border border-[#202938] rounded-2xl p-5 flex flex-col justify-center items-center shadow-2xl">
         <ConfettiContainer isGameWon={isGameWon} />
 
         <LangugageSelector

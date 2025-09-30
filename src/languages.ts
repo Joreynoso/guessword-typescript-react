@@ -7,47 +7,47 @@ export type Language = {
 export const languages:Language[] = [
     {
         name: "HTML",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "CSS",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "JavaScript",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "React",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "TypeScript",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "Node.js",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "Python",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "Ruby",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
     {
         name: "Assembly",
-        backgroundColor: "#1A1A1A",
+        backgroundColor: "#202938",
         color: "#ffffff",
     },
 ]

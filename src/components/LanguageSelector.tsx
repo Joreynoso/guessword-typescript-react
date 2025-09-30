@@ -44,8 +44,8 @@ export default function LangugageSelector({
     <>
       {/* language component */}
       <div
-        className="relative w-full min-h-16 bg-neutral-900 border border-neutral-800 rounded-xl mb-10
-                            flex flex-col justify-center items-center"
+        className="relative w-full bg-[#111828] border border-[#202938] rounded-xl mb-10
+                            flex  justify-center items-center p-4"
       >
         <div className="flex justify-center items-center gap-2 mb-2">
           <p className="text-[#F9F4DA] font-medium">
@@ -55,7 +55,7 @@ export default function LangugageSelector({
           {/* toggle menu button */}
           <button
             onClick={handleOpenMenu}
-            className="w-10 h-10 rounded-sm bg-neutral-900 border border-neutral-800 aspect-square flex justify-center items-center"
+            className="w-10 h-10 rounded-sm bg-[#111828] border border-[#202938] aspect-square flex justify-center items-center"
           >
             {menuOpen ? arrowIconUp : arrowIconDown}
           </button>
@@ -63,7 +63,8 @@ export default function LangugageSelector({
 
         {/* dropdown options */}
         {menuOpen ? (
-          <div className="absolute top-14 ml-14 w-32 bg-neutral-800 border border-neutral-700 rounded-md flex flex-col items-center py-1">
+          <div className="absolute top-14 ml-14 w-32 bg-[#111828] border border-[#202938] rounded-md 
+          flex flex-col items-center py-1 hover:bg-[#141d2f] transition-colors duration-200 ease-in-out">
             <button
               onClick={toggleLanguage}
               className="text-[#F9F4DA] font-medium py-1 cursor-pointer"

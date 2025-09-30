@@ -19,7 +19,7 @@ export default function LanguageChips({ languages, wrongGuessCount }:LanguageChi
         
         return (
             <span
-                className={`${className} rounded-lg border border-neutral-700`}
+                className={`${className} rounded-full`}
                 style={styles}
                 key={lang.name}
             >
